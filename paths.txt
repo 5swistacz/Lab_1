@@ -1,0 +1,4 @@
+"../Logs/baseline_BdJPsiKs_MagD.log"
+"../Logs/DR_BdJPsiKs_MagD_1k.log"
+"../Logs/DR_NE_BdJPsiKs_MagD_1k.log"
+"../Logs/DR_NE_BdJPsiKs_MagD.log"

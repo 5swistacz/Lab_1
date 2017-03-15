@@ -1,27 +1,18 @@
 #!/usr/bin/env python
-import re
-import Parser
+import sys
+import word_counter
 
 if __name__ == '__main__':
 
-    file1 = open("../Logs/baseline_BdJPsiKs_MagD.log", 'r')
-    file2 = open("../Logs/DR_BdJPsiKs_MagD_1k.log", 'r')
-    file3 = open("../Logs/DR_NE_BdJPsiKs_MagD_1k.log", 'r')
-    file4 = open("../Logs/DR_NE_BdJPsiKs_MagD.log", 'r')
+    if len(sys.argv)<2:
+        print("podaj nazwe pliku")
+        sys.exit(0)
 
-    content1 = file1.read()
-    content2 = file1.read()
-    content3 = file1.read()
-    content4 = file1.read()
+    filename=sys.argv[1]
+    print("Wybrano plik: "+filename)
 
-    print("Looking for \"PrChecker.Downs\"")
-
-    result1 = Parser.Parser(content1, "../Logs/baseline_BdJPsiKs_MagD.log")
-    result2 = Parser.Parser(content2, "../Logs/DR_BdJPsiKs_MagD_1k.log")
-    result3 = Parser.Parser(content3, "../Logs/DR_NE_BdJPsiKs_MagD_1k.log")
-    result4 = Parser.Parser(content4, "../Logs/DR_NE_BdJPsiKs_MagD.log")
-
-    print(result1)
-    print(result2)
-    print(result3)
-    print(result4)
+    file= open(filename,'r')
+    content=file.read()
+    number_of_words= word_counter.WordCounter(content)
+    number= number_of_words.count()
+    print("Liczba wyrazow: "+str(number))
